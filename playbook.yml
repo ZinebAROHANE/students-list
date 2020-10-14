@@ -1,0 +1,55 @@
+---
+- hosts: deploy_servers
+  become: true
+  tasks:
+#     - name: Remove the old cloned folder...
+#       shell: sudo rm -r student-list/ simple_api/
+
+    - name: clone the git repo
+      shell: git clone https://github.com/iliassanati/student-list.git
+
+    - name: Go to the placement of the dokcer-compose.yml
+      shell: cd student-list
+
+    # docker network
+    - name: crete docker network to interconnect containers
+      docker_network:
+        name: student-list_network
+      tags:
+        - deploy
+
+    # deploy API
+
+    - name: Deploy api
+      docker_container:
+        name: api
+        hostname: api
+        image: registry.local.com:5000/simple_api
+        state: started
+        volumes:
+          - /home/iliassanati/student-list/simple_api/student_age.json:/data/student_age.json
+        ports:
+          - 5000:5000
+        networks:
+          - name: student-list_network
+      tags:
+        - deploy
+
+    # deploy frontend
+
+    - name: Deploy frontend
+      docker_container:
+        name: website
+        image: php:7.2-apache
+        state: started
+        volumes:
+          - /home/iliassanati/student-list/website:/var/www/html
+        env:
+          USERNAME: 'toto'
+          PASSWORD: 'python'
+        ports:
+          - '80:80'
+        networks:
+          - name: student-list_network
+      tags:
+        - deploy

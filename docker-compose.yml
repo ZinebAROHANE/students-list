@@ -1,0 +1,32 @@
+
+version: "3.8"
+services:
+  # website
+  website:
+    image: php:7.2-apache
+    depends_on:
+      - api
+    environment:
+      - USERNAME=toto
+      - PASSWORD=python
+    volumes:
+      - ./website:/var/www/html
+    ports:
+      - 80:80
+    networks:
+      - appnetwork
+
+  # API
+  api:
+    hostname: api
+    image: registry.local.com:5000/simple_api
+    volumes:
+      - ./simple_api/student_age.json:/data/student_age.json
+    ports:
+      - 5000:5000
+    networks:
+      - appnetwork
+
+networks:
+  appnetwork:
+
