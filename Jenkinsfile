@@ -16,8 +16,9 @@ pipeline {
             """)
          }
    }
-
-stage('Push container'){
+   }
+}
+/*stage('Push container'){
           steps{
               dir("$WORKSPACE/simple_api"){
                  script{
@@ -35,3 +36,4 @@ stage('Push container'){
 
    }
 }
+*/
