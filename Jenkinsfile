@@ -22,7 +22,8 @@ pipeline {
               dir("$WORKSPACE/simple_api"){
                  script{
                     docker.withRegistry('https://index.docker.io/v1/ ', 'dockerhub') {
-                    docker push arohanezineb/zineblourizrepo:latest
+                    def image = docker.build('arohanezineb/zineblourizrepo:latest')
+                    image.push()
                     
                     }
               }
