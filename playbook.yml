@@ -6,13 +6,13 @@
 #       shell: sudo rm -r student-list/ simple_api/
 
     - name: clone the git repo
-      shell: git clone https://github.com/iliassanati/student-list.git
+      shell: git clone https://github.com/ZinebAROHANE/students-list.git
 
-    - name: Go to the placement of the dokcer-compose.yml
-      shell: cd student-list
+    - name: Go to the placement of the docker-compose.yml
+      shell: cd students-list
 
     # docker network
-    - name: crete docker network to interconnect containers
+    - name: create docker network to interconnect containers
       docker_network:
         name: student-list_network
       tags:
@@ -27,7 +27,7 @@
         image: registry.local.com:5000/simple_api
         state: started
         volumes:
-          - /home/iliassanati/student-list/simple_api/student_age.json:/data/student_age.json
+          - /home/ansadmin/students-list/simple_api/student_age.json:/data/student_age.json
         ports:
           - 5000:5000
         networks:
@@ -43,7 +43,7 @@
         image: php:7.2-apache
         state: started
         volumes:
-          - /home/iliassanati/student-list/website:/var/www/html
+          - /home/ansadmin/students-list/website:/var/www/html
         env:
           USERNAME: 'toto'
           PASSWORD: 'python'
