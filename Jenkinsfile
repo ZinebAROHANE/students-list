@@ -18,22 +18,8 @@ pipeline {
    }
    }
 }
-/*stage('Push container'){
-          steps{
-              dir("$WORKSPACE/simple_api"){
-                 script{
-                    docker.withRegistry('https://index.docker.io/v1/ ', 'dockerhub') {
-                    def image = docker.build('arohanezineb/studentlistrepo:latest')
-                    image.push()
-                    }
-              }
-              }
-          }
-}
 
 
 
 
-   }
-}
-*/
+
