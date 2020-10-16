@@ -32,7 +32,7 @@ pipeline {
 }
 stage(' app Deploy'){
       steps{
-   ansiblePlaybook credentialsId: 'Appserver', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
+  ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
 }
    }
    }
