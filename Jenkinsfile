@@ -30,6 +30,11 @@ pipeline {
               }
           }
 }
+stage(' app Deploy'){
+      steps{
+   ansiblePlaybook credentialsId: 'Appserver', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
+}
+   }
    }
 }
 
