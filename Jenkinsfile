@@ -8,7 +8,7 @@ pipeline {
          }
       }
       stage('Docker Build') {
-         steps {
+        steps {
             sh(script: """
                cd simple_api/
                docker build -t arohanezineb/studentlistimage:0.0.1 .
@@ -18,14 +18,14 @@ pipeline {
 
    }
       stage('Push container'){
-          steps{
-              dir("$WORKSPACE/simple_api"){
+          //steps{
+              //dir("$WORKSPACE/simple_api"){
 
                  // ++++
                  withCredentials([string(credentialsId: 'docker-pwd', variable: 'DockerHubPwd')]) {
                      sh "docker login -u arohanezineb -p ${dockerHubPwd}"
                        }
-	                   sh 'docker push arohanezineb/zineblourizrepo:latest'
+	                   sh 'docker push arohanezineb/studentlistimage:0.0.1'
                //+++
                 // script{
                   //  docker.withRegistry('https://index.docker.io/v1/ ', 'dockerhub') {
@@ -34,15 +34,15 @@ pipeline {
                     
                    // }
              // }
-              }
-          }
+              //}
+        //  }
 }
 
 stage('Remove Previous Container'){
 	try{
 		def dockerRm = 'docker rm -f zineblourizrepo'
 		sshagent(['docker-dev']) {
-			sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.85.84 ${dockerRm}"
+			sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.91.226 ${dockerRm}"
 		}
 	}catch(error){
 		//  do nothing if there is an exception
