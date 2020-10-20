@@ -36,13 +36,13 @@ pipeline {
 }
    }*/
 
-stage('Run containe on app server') {
-   def dockerRun = 'docker run -p 5000:5000 -d --name simple_api arohanezineb/zineblourizrepo:latest'
+         stage('Run containe on app server') {
+            def dockerRun = 'docker run -p 5000:5000 -d --name simple_api arohanezineb/zineblourizrepo:latest'
 
-   sshagent(['dev-server']) {
-      sh " ssh -o StrictHostKeyChecking=no ec2-user@172.31.85.84 ${dockerRun}"
-}
-}
+            sshagent(['dev-server']) {
+             sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.85.84 ${dockerRun}"
+                  }
+               }
 
 
    }
