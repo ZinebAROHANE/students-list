@@ -30,11 +30,7 @@ pipeline {
               }
           }
 }
-/*stage(' app Deploy'){
-      steps{
-  ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
-}
-   }*/
+
 
          stage('Run container on app server') {
             steps{
@@ -52,7 +48,12 @@ pipeline {
    }
    
 }
-
+}
+/*stage(' app Deploy'){
+      steps{
+  ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
+}
+   }*/
 
 
 
