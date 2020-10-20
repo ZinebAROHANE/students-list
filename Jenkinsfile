@@ -22,10 +22,16 @@ pipeline {
               //dir("$WORKSPACE/simple_api"){
 
                  // ++++
+                 steps{
                  withCredentials([string(credentialsId: 'docker-pwd', variable: 'DockerHubPwd')]) {
-                     sh "docker login -u arohanezineb -p ${dockerHubPwd}"
+                    sh(script: """
+                     docker login -u arohanezineb -p ${dockerHubPwd}
+                     """)
                        }
-	                   sh 'docker push arohanezineb/studentlistimage:0.0.1'
+                       sh(script: """
+	                   docker push arohanezineb/studentlistimage:0.0.1
+                      """)
+                 }
                //+++
                 // script{
                   //  docker.withRegistry('https://index.docker.io/v1/ ', 'dockerhub') {
