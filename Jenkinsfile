@@ -44,7 +44,7 @@ pipeline {
         //  }
 }
 
-         stage('Remove Previous Container'){
+         /*stage('Remove Previous Container'){
             steps{
 	         try{
 	         	def dockerRm = 'docker rm -f zineblourizrepo'
@@ -75,6 +75,9 @@ pipeline {
    
 }
 }
+*/ 
+
+
 /*stage(' app Deploy'){
       steps{
   ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
