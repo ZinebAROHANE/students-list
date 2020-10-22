@@ -24,7 +24,7 @@
       docker_container:
         name: api
         hostname: api
-        image: arohanezineb/zineblourizrepo
+        image: arohanezineb/studentlistimage
         state: started
         volumes:
           - /home/ansadmin/students-list/simple_api/student_age.json:/data/student_age.json
