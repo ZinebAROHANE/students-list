@@ -44,16 +44,18 @@ pipeline {
         //  }
 }
 
-stage('Remove Previous Container'){
-	try{
-		def dockerRm = 'docker rm -f zineblourizrepo'
-		sshagent(['docker-dev']) {
-			sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.91.226 ${dockerRm}"
-		}
-	}catch(error){
-		//  do nothing if there is an exception
-	}
- }
+         stage('Remove Previous Container'){
+            steps{
+	         try{
+	         	def dockerRm = 'docker rm -f zineblourizrepo'
+		         sshagent(['docker-dev']) {
+			      sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.91.226 ${dockerRm}"
+	            	}
+	               }catch(error){
+		
+	               }
+                }
+               }
 
 
          stage('Run container on app server') {
