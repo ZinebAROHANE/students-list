@@ -44,9 +44,11 @@ pipeline {
         //  }
 }
 
-   }
-   }
-   
+
+
+// ================================================= UNTIIL NOW WORKING!!=======================================================================
+
+  
 
          /*stage('Remove Previous Container'){
             steps{
@@ -82,12 +84,13 @@ pipeline {
 */ 
 
 
-/*stage(' app Deploy'){
+stage(' app Deploy'){
       steps{
   ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
 }
-   }*/
+   }
 
 
-
+}
+}
 
