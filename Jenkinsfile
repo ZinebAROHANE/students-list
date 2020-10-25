@@ -32,7 +32,19 @@ pipeline {
 	                   docker push arohanezineb/studentlistimage:0.0.1
                       """)
                  }
-               //+++
+                 }
+      stage(' app Deploy'){
+        steps{
+         //ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
+           ansiblePlaybook credentialsId: 'private-key25', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
+            }
+             }
+
+
+}
+}
+               //+++ suite push conteiner
+
                 // script{
                   //  docker.withRegistry('https://index.docker.io/v1/ ', 'dockerhub') {
                    // def image = docker.build('arohanezineb/zineblourizrepo:latest')
@@ -42,7 +54,6 @@ pipeline {
              // }
               //}
         //  }
-}
 
 
 
@@ -84,13 +95,5 @@ pipeline {
 */ 
 
 
-stage(' app Deploy'){
-      steps{
-  ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
-}
-   }
 
-
-}
-}
 
