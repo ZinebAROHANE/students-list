@@ -1,2 +1,2 @@
 [deploy_servers]
-172.31.85.84 ansible_user=ansadmin
+172.31.85.84 ansible_user=ec2-user

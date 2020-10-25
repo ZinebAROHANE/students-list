@@ -5,6 +5,16 @@
 #     - name: Remove the old cloned folder...
 #       shell: sudo rm -r student-list/ simple_api/
 
+    - name: install python pip
+      yum: 
+        name: python-pip
+        state: present
+    
+    - name: install docker-py python module
+      pip: 
+        name: docker-py
+        state: present
+
     - name: clone the git repo
       shell: git clone https://github.com/ZinebAROHANE/students-list.git
 
