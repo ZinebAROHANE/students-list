@@ -5,26 +5,26 @@
 #     - name: Remove the old cloned folder...
 #       shell: sudo rm -r student-list/ simple_api/
 
-    - name: install python pip
-      yum: 
-        name: python-pip
-        state: present
+    #- name: install python pip
+    #  yum: 
+    #    name: python-pip
+    #    state: present
 
-    - name: install docker
-      yum: 
-        name: docker
-        state: present
+   # - name: install docker
+   #   yum: 
+   #     name: docker
+    #    state: present
     
-    - name: start docker
-      service: 
-        name: docker
-        state: started
-        enabled: yes 
+   # - name: start docker
+    #  service: 
+    #    name: docker
+    #    state: started
+    #    enabled: yes 
     
-    - name: install docker-py python module
-      yum: 
-        name: docker-py
-        state: present
+   # - name: install docker-py python module
+   #   yum: 
+     #   name: docker-py
+     #   state: present
       
     
 
