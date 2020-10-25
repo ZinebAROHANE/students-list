@@ -35,17 +35,18 @@ pipeline {
                  }
 
 
-               /*  
+               
       stage(' app Deploy'){
         steps{
          //ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
            ansiblePlaybook credentialsId: 'private-key25', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'playbook.yml'
             }
              }
-             */
+             
 
 
-//} }
+} 
+}
                //+++ suite push conteiner
 
                 // script{
@@ -78,7 +79,7 @@ pipeline {
                }
 
 */
-         stage('app Deploy') {
+        /* stage('app Deploy') {
             steps{
                 dir("$WORKSPACE/simple_api"){
                  script{
@@ -95,7 +96,7 @@ pipeline {
    
 }
 }
-
+*/
 
 
 
