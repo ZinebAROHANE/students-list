@@ -50,7 +50,7 @@
         image: arohanezineb/studentlistimage:0.0.1
         state: started
         volumes:
-          - /home/ansadmin/students-list/simple_api/student_age.json:/data/student_age.json
+          - /home/ec2-user/students-list/simple_api/student_age.json:/data/student_age.json
         ports:
           - 5000:5000
         networks:
@@ -66,7 +66,7 @@
         image: php:7.2-apache
         state: started
         volumes:
-          - /home/ansadmin/students-list/website:/var/www/html
+          - /home/ec2-user/students-list/website:/var/www/html
         env:
           USERNAME: 'toto'
           PASSWORD: 'python'
