@@ -19,7 +19,7 @@ services:
   # API
   api:
     hostname: api
-    image: 3.82.144.159:5000/arohanezineb/studentlistimage
+    image: 52.207.163.17:5000/arohanezineb/studentlistimage
       #registry.local.com:5000/simple_api
     volumes:
       - ./simple_api/student_age.json:/data/student_age.json
